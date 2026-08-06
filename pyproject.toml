@@ -23,6 +23,13 @@ vision = [
   "torchvision>=0.26,<0.27",
 ]
 
+# This project exposes command-line scripts today, but keeping a real package
+# under src/ makes editable installs predictable and prevents setuptools from
+# mistaking generated data/ and reports/ folders for Python packages.
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["photo_library_curator*"]
+
 [tool.pytest.ini_options]
 pythonpath = ["scripts"]
 testpaths = ["tests"]
