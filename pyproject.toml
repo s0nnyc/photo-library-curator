@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "photo-library-curator"
+version = "0.1.0"
+description = "A local-first, read-only photo library audit tool."
+requires-python = ">=3.11"
+dependencies = [
+  "Pillow>=11,<12",
+  "pillow-heif>=1,<2",
+]
+
+[project.optional-dependencies]
+# NumPy is needed by the visual-grouping unit tests, but the full local-GPU
+# stack remains opt-in under the `vision` extra.
+dev = ["numpy>=2,<3", "pytest>=8,<9"]
+vision = [
+  "numpy>=2,<3",
+  "open-clip-torch>=3,<4",
+  "torch>=2.11,<2.12",
+  "torchvision>=0.26,<0.27",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["scripts"]
+testpaths = ["tests"]

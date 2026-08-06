@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+
+# Private or generated project output. Never commit a photo library or recovery folder.
+data/*
+!data/.gitkeep
+.cache/
+reports/*
+!reports/.gitkeep
